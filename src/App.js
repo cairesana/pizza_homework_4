@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import PizzaContainer from './components/PizzaContainer'
 
 class App extends Component {
   render() {
     return (
       <div>
         <main>
-          <p>test</p>
+          <h1>Welcome to NewAgePizza.com</h1>
+          <PizzaContainer />
         </main>
       </div>
     );

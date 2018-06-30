@@ -8,6 +8,7 @@ class PizzaContainer extends Component {
     return (
       <div>
         <BaseForm />
+        <input type="submit" value="Submit" />
       </div>
     )
   }

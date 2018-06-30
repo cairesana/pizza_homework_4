@@ -12,7 +12,8 @@ class BaseForm extends Component {
 
   handleChange(event) {
     const selectedBase = event.target.value.split("-") //no option value dividi a massa do preco com o traco. Fazer split no traco, gera novo array e dai o resultado:
-    this.props.addSelectedBase(selectedBase[0], selectedBase[1]); //eh o primeiro indice da array q esta a esquerda: a massa; e o segundo indice eh o da direta do traco: o preco.
+    const base = {baseType: selectedBase[0], basePrice: selectedBase[1]};
+    this.props.addSelectedBase(base); //eh o primeiro indice da array q esta a esquerda: a massa; e o segundo indice eh o da direta do traco: o preco.
   }
 
   render() {
@@ -33,10 +34,11 @@ class BaseForm extends Component {
 }
 
 const mapStateToProps = state => ({
+  base: state.base.base,     //
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSelectedBase: (baseType, basePrice) => dispatch(addSelectedBase(baseType, basePrice))
+  addSelectedBase: (base) => dispatch(addSelectedBase(base))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaseForm);

@@ -11,6 +11,6 @@ export default (state = {
       ...state,
       base: {type: action.payload.pizzaBase, price: action.payload.price}
     }
-  default: return { state }
+  default: return { ...state }
   }
 }

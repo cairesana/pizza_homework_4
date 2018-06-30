@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import BaseForm from './BaseForm'
+import SauceForm from './SauceForm'
 
 
 class PizzaContainer extends Component {
@@ -8,6 +9,8 @@ class PizzaContainer extends Component {
     return (
       <div>
         <BaseForm />
+        
+        <SauceForm />
         <input type="submit" value="Submit" />
       </div>
     )

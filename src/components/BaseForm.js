@@ -34,7 +34,7 @@ class BaseForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  base: state.base.base,     //
+  base: state.baseReducer.base,     //
 });
 
 const mapDispatchToProps = dispatch => ({

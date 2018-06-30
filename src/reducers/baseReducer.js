@@ -1,8 +1,8 @@
 
 export default (state = {
   base: {},
-  toppings: [],
-  salse: {},
+  //toppings: [],
+  
 }, action = {}) => {
 
   switch (action.type) {

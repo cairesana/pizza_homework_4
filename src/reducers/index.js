@@ -1,11 +1,6 @@
 import { combineReducers } from 'redux'
-import baseReducer from './baseReducer'
-import sauceReducer from './sauceReducer'
-import toppingsReducer from './toppingsReducer'
-
+import pizzaReducer from './pizzaReducer'
 
 export default combineReducers({
-  baseReducer,
-  sauceReducer,
-  toppingsReducer,
+  pizzaReducer
 })

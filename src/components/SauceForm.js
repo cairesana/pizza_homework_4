@@ -42,7 +42,7 @@ class SauceForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  base: state.baseReducer.base,
+  base: state.pizzaReducer.base,
 });
 
 const mapDispatchToProps = dispatch => ({

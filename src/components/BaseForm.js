@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { addSelectedBase } from '../actions/pickBase'
+import { updateTotalPrice } from '../actions/updateTotalPrice'
 import { connect } from 'react-redux'
 
 class BaseForm extends Component {
@@ -14,6 +15,7 @@ class BaseForm extends Component {
     const selectedBase = event.target.value.split("-") //no option value dividi a massa do preco com o traco. Fazer split no traco, gera novo array e dai o resultado:
     const base = {baseType: selectedBase[0], basePrice: selectedBase[1]};
     this.props.addSelectedBase(base); //eh o primeiro indice da array q esta a esquerda: a massa; e o segundo indice eh o da direta do traco: o preco.
+    this.props.updateTotalPrice(); //duas action, linha de cima add a base, linha de baixo atualiza preco, tem q ser nessa ordem.
   }
 
   render() {
@@ -36,11 +38,13 @@ class BaseForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  base: state.baseReducer.base,     //
+  base: state.pizzaReducer.base,
+  totalPrice: state.pizzaReducer.totalPrice,
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSelectedBase: (base) => dispatch(addSelectedBase(base))
+  addSelectedBase: (base) => dispatch(addSelectedBase(base)),
+  updateTotalPrice: () => dispatch(updateTotalPrice())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaseForm);

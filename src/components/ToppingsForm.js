@@ -94,9 +94,9 @@ class ToppingsForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  topping1: state.toppingsReducer.topping1,
-  topping2: state.toppingsReducer.topping2,
-  topping3: state.toppingsReducer.topping3,
+  topping1: state.pizzaReducer.topping1,
+  topping2: state.pizzaReducer.topping2,
+  topping3: state.pizzaReducer.topping3,
 });
 
 const mapDispatchToProps = dispatch => ({

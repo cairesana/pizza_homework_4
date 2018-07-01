@@ -4,6 +4,7 @@
 // Mix it up € 1,50
 import React, {Component} from 'react'
 import { addSelectedSauce } from '../actions/pickSauce'
+import { updateTotalPrice } from '../actions/updateTotalPrice'
 import { connect } from 'react-redux'
 
 
@@ -20,6 +21,7 @@ class SauceForm extends Component {
     const selectedSauce = event.target.value.split("-")
     const sauce = {sauceType: selectedSauce[0], saucePrice: selectedSauce[1]};
     this.props.addSelectedSauce(sauce);
+    this.props.updateTotalPrice();
   }
 
   render() {
@@ -42,11 +44,13 @@ class SauceForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  base: state.pizzaReducer.base,
+  sauce: state.pizzaReducer.sauce,
+  totalPrice: state.pizzaReducer.totalPrice,
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSelectedSauce: (base) => dispatch(addSelectedSauce(base))
+  addSelectedSauce: (sauce) => dispatch(addSelectedSauce(sauce)),
+  updateTotalPrice: () => dispatch(updateTotalPrice())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SauceForm);

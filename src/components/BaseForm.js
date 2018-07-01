@@ -44,7 +44,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addSelectedBase: (base) => dispatch(addSelectedBase(base)),
-  updateTotalPrice: () => dispatch(updateTotalPrice())
+  updateTotalPrice: () => dispatch(updateTotalPrice()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BaseForm);

@@ -4,6 +4,8 @@
 import React, {Component} from 'react'
 import { addSelectedTopping1, addSelectedTopping2, addSelectedTopping3  } from '../actions/pickToppings'
 import { connect } from 'react-redux'
+import { updateTotalPrice } from '../actions/updateTotalPrice'
+
 
 class ToppingsForm extends Component {
   constructor(props) {
@@ -19,18 +21,21 @@ class ToppingsForm extends Component {
     const selectedTopping1 = event.target.value.split("-")
     const topping1 = {toppingType: selectedTopping1[0], toppingPrice: selectedTopping1[1]};
     this.props.addSelectedTopping1(topping1);
+    this.props.updateTotalPrice();
   }
 
   handleChangeTop2(event) {
     const selectedTopping2 = event.target.value.split("-")
     const topping2 = {toppingType: selectedTopping2[0], toppingPrice: selectedTopping2[1]};
     this.props.addSelectedTopping2(topping2);
+    this.props.updateTotalPrice();
   }
 
   handleChangeTop3(event) {
     const selectedTopping3 = event.target.value.split("-")
     const topping3 = {toppingType: selectedTopping3[0], toppingPrice: selectedTopping3[1]};
     this.props.addSelectedTopping3(topping3);
+    this.props.updateTotalPrice();
   }
 
   render() {
@@ -97,12 +102,15 @@ const mapStateToProps = state => ({
   topping1: state.pizzaReducer.topping1,
   topping2: state.pizzaReducer.topping2,
   topping3: state.pizzaReducer.topping3,
+  totalPrice: state.pizzaReducer.totalPrice,
 });
 
 const mapDispatchToProps = dispatch => ({
   addSelectedTopping1: (topping1) => dispatch(addSelectedTopping1(topping1)),
   addSelectedTopping2: (topping2) => dispatch(addSelectedTopping2(topping2)),
   addSelectedTopping3: (topping3) => dispatch(addSelectedTopping3(topping3)),
+  updateTotalPrice: () => dispatch(updateTotalPrice()),
+
 });
 
 

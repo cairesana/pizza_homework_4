@@ -1,10 +1,10 @@
 
 export default (state = {
-  base: {},
-  sauce: {},
-  topping1: {},
-  topping2: {},
-  topping3: {},
+  base: {type: '', price: 0},
+  sauce: {type: '', price: 0},
+  topping1: {type: '', price: 0},
+  topping2: {type: '', price: 0},
+  topping3: {type: '', price: 0},
   totalPrice: 0,
 
 }, action = {}) => {
@@ -43,13 +43,19 @@ export default (state = {
   case 'UPDATE_TOTAL_PRICE':
     return {
       ...state,
-      totalPrice: parseFloat(state.base.price
-                  + state.sauce.price
-                  + state.topping1.price
-                  + state.topping2.price
-                  + state.topping3.price)
+      totalPrice: parseFloat(state.base.price)
+                  + parseFloat(state.sauce.price)
+                  + parseFloat(state.topping1.price)
+                  + parseFloat(state.topping2.price)
+                  + parseFloat(state.topping3.price)
     }
 
-  default: return { ...state }
+  case 'GET_TOTAL_PRICE':
+    return state.totalPrice
+
+  default:
+    return {
+      ...state
+    }
   }
 }

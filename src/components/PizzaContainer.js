@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import BaseForm from './BaseForm'
 import SauceForm from './SauceForm'
 import ToppingsForm from './ToppingsForm'
+import { connect } from 'react-redux'
 
 
 class PizzaContainer extends Component {
@@ -14,11 +15,17 @@ class PizzaContainer extends Component {
         <SauceForm />
 
         <ToppingsForm />
-        
+
+        <h3>Totalprice: {this.props.totalPrice}</h3>
+
         <input type="submit" value="Submit" />
       </div>
     )
   }
 }
 
-export default PizzaContainer;
+const mapStateToProps = state => ({
+  totalPrice: state.pizzaReducer.totalPrice,
+});
+
+export default connect(mapStateToProps)(PizzaContainer);

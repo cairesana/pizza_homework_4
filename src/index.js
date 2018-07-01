@@ -14,7 +14,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-
 registerServiceWorker();
 
 // To tell React where it can find the Redux store we have to wrap our App component in a Provider component.

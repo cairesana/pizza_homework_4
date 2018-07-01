@@ -20,13 +20,15 @@ class BaseForm extends Component {
     return (
       <form>
         <label>
-          Please, select your base:
+          <h3>Please, select your base:</h3>
+          <br /> {/*skip line*/}
           <select value={this.state.value} onChange={this.handleChange}>
             <option value="20cm NY Style - 6.45">20cm NY Style -- € 6,45</option>
             <option value="25cm NY Style - 8.99">25cm NY Style -- € 8,99</option>
             <option value="30cm NY Style - 11.49">30cm NY Style -- € 11,49</option>
             <option value="35cm NY Style - 13.49">35cm NY Style -- € 13,49</option>
           </select>
+          <hr/> {/*add a line*/}
         </label>
       </form>
     );
